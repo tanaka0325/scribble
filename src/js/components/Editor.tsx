@@ -6,11 +6,20 @@ import { extraKeys } from "../keymap";
 require("codemirror/mode/markdown/markdown");
 require("codemirror/addon/edit/continuelist");
 
-export default class Editor extends React.Component<{}, { value: string }> {
-  constructor(props: {}) {
+interface EditorProps {
+  title: string;
+  body: string;
+}
+
+interface EditorState {
+  value: string;
+}
+
+class Editor extends React.Component<EditorProps, EditorState> {
+  constructor(props: EditorProps) {
     super(props);
     this.state = {
-      value: "# initial value"
+      value: this.props.body
     };
   }
 
@@ -24,7 +33,6 @@ export default class Editor extends React.Component<{}, { value: string }> {
   render() {
     return (
       <div>
-        Editor Component
         <CodeMirror
           value={this.state.value}
           options={this.options}
@@ -37,3 +45,5 @@ export default class Editor extends React.Component<{}, { value: string }> {
     );
   }
 }
+
+export default Editor;

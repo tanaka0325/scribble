@@ -1,14 +1,16 @@
 import * as React from "react";
 
-import Editor from "./Editor";
+import Note from "./Note";
 
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return (
       <div>
         App Component.
-        <Editor />
+        <Note />
       </div>
     );
   }
 }
+
+export default App;
