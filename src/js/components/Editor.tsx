@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
 
 import { extraKeys } from "../keymap";
@@ -6,8 +6,8 @@ import { extraKeys } from "../keymap";
 require("codemirror/mode/markdown/markdown");
 require("codemirror/addon/edit/continuelist");
 
-export default class Editor extends Component {
-  constructor(props) {
+export default class Editor extends React.Component<{}, { value: string }> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       value: "# initial value"
@@ -28,10 +28,10 @@ export default class Editor extends Component {
         <CodeMirror
           value={this.state.value}
           options={this.options}
-          onBeforeChange={(editor, data, value) => {
+          onBeforeChange={(editor: any, data: any, value: string) => {
             this.setState({ value });
           }}
-          onChange={(editor, data, value) => {}}
+          onChange={(editor: any, data: any, value: string) => {}}
         />
       </div>
     );

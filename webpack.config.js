@@ -8,7 +8,7 @@ const paths = {
 };
 
 module.exports = {
-  entry: path.join(paths.JS, "index.js"),
+  entry: path.join(paths.JS, "index.tsx"),
   output: {
     path: paths.DIST,
     filename: "bundle.js"
@@ -25,19 +25,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ["babel-loader"]
+        test: /\.tsx?$/,
+        use: ["awesome-typescript-loader"]
       },
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   use: ["babel-loader"]
+      // },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         use: ["source-map-loader"],
         enforce: "pre"
       }
     ]
   },
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: [".ts", ".tsx", ".js", ".js"]
   },
   externals: {
     react: "React",

@@ -5,8 +5,8 @@ export const extraKeys = {
   // "Cmd-Enter": () => {
   //   this.handleSubmit();
   // },
-  Esc: () => {
-    document.activeElement.blur();
-  },
+  // Esc: () => {
+  //   document.activeElement.blur();
+  // },
   Enter: "newlineAndIndentContinueMarkdownList"
 };
